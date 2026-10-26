@@ -1,0 +1,442 @@
+/* ==========================================================
+   Voz Animal — style.css (versão para PC)
+   ========================================================== */
+
+:root {
+  --navy: #1c2b3a;
+  --navy-soft: #2b4054;
+  --sky: #e6f0f5;
+  --amber: #f2b134;
+  --amber-dark: #d99716;
+  --red: #a62b2b;
+  --text: #1f2933;
+  --white: #fff;
+
+  --header-h: 5rem;
+  --radius: 0.75rem;
+  --max: 72rem;
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* ---------- Scroll Behavior ---------- */
+html {
+  scroll-behavior: smooth;                 /* rolagem suave entre os assuntos */
+  scroll-padding-top: var(--header-h);     /* o menu fixo não cobre os títulos */
+  scroll-snap-type: y proximity;           /* encaixe leve ao chegar perto de uma seção */
+}
+.hero, .denuncia, .ongs, .informacao, .informativos, .colaboradores, .saude, .footer { scroll-snap-align: start; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; scroll-snap-type: none; }
+  * { transition: none !important; }
+}
+
+/* ---------- Base ---------- */
+body {
+  font-family: var(--font);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 2.4rem; margin-bottom: 2rem; }
+h3 { font-size: 1.3rem; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover { background: var(--amber-dark); transform: translateY(-2px); }
+
+/* ---------- Header ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(2rem, calc((100% - var(--max)) / 2));
+  background: var(--navy);
+  color: var(--white);
+}
+.header__logo img { width: 9rem; }
+.nav__list { display: flex; gap: 2.5rem; }
+.nav__list a {
+  padding: 0.5rem 0;
+  text-decoration: none;
+  font-weight: 600;
+  background: linear-gradient(var(--amber), var(--amber)) 0 100% / 0 3px no-repeat;
+  transition: background-size 0.25s;
+}
+.nav__list a:hover { background-size: 100% 3px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--white);
+}
+.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(28 43 58 / 0.85), transparent 65%);
+}
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 0 2rem 4rem;
+  font-size: 5rem;
+}
+
+/* ---------- Seções ---------- */
+.denuncia, .ongs, .informacao, .informativos, .colaboradores, .saude { padding: 6rem 2rem; }
+.ongs > *, .informacao > *, .informativos > *, .colaboradores > *, .saude > * { max-width: var(--max); margin-inline: auto; }
+
+/* ---------- Denúncia ---------- */
+.denuncia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding-inline: max(2rem, calc((100% - var(--max)) / 2));
+  background: var(--red);
+  color: var(--white);
+}
+.denuncia__img { width: 100%; border-radius: var(--radius); }
+
+/* ---------- ONGs ---------- */
+.ongs { background: var(--sky); }
+.ongs__lista { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  background: var(--white);
+  border-radius: var(--radius);
+  transition: transform 0.25s;
+}
+.card:hover { transform: translateY(-4px); }
+.card img { width: 9rem; height: 9rem; object-fit: contain; }
+.card__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.card__links a {
+  display: block;
+  padding: 0.35rem 1rem;
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.card__links a:hover { background: var(--navy); color: var(--white); }
+
+/* ---------- Informação / artigos ---------- */
+.artigos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.artigo {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--sky);
+  border-radius: var(--radius);
+}
+.artigo img.foco-esquerda { object-position: 30% center; }
+.artigo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.4s; }
+.artigo:hover img { transform: scale(1.04); }
+.artigo span { display: block; padding: 1.25rem 1.5rem 1.75rem; font-weight: 600; }
+
+/* ---------- Informativos (dados do abandono) ---------- */
+.informativos { background: var(--sky); }
+.informativos__lista { display: grid; gap: 2rem; max-width: 46rem; }
+.informativo {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: var(--radius);
+}
+.informativo h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+.informativo p + p { margin-top: 1rem; }
+.informativo img { width: 100%; margin-top: 1.5rem; border-radius: var(--radius); }
+
+/* ---------- Colaboradores ---------- */
+.colaboradores__lista { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.colaborador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--sky);
+  border-radius: var(--radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* ao passar o mouse o cartão "vem para frente" */
+.colaborador:hover, .colaborador:focus-within {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.06);
+  box-shadow: 0 1rem 2rem rgb(28 43 58 / 0.25);
+}
+.colaborador__avatar {
+  display: grid;
+  place-content: center;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--amber);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.colaborador h3 { font-size: 1.2rem; }
+.colaborador p { font-size: 1rem; }
+.colaborador__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: auto; padding-top: 0.5rem; }
+.colaborador__links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem 0.35rem 0.5rem;
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.colaborador__links a img { width: 1.5rem; height: 1.5rem; }
+.colaborador__links a:hover { background: var(--navy); color: var(--white); }
+
+/* ---------- Saúde pet ---------- */
+.saude { background: var(--amber); text-align: center; }
+.saude h2 { margin-bottom: 0; }
+.saude a { color: var(--navy); text-decoration-thickness: 3px; text-underline-offset: 0.2em; }
+.saude a:hover { text-decoration-color: var(--white); }
+
+/* ---------- Footer ---------- */
+.footer {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--navy);
+  color: var(--white);
+}
+.footer img { width: 9rem; }
+.footer__frase { font-size: 1.5rem; font-weight: 800; color: var(--amber); }
+.footer p:not(.footer__frase) { max-width: 44rem; color: #c9d4dd; }
+.footer p.footer__creditos { max-width: 44rem; font-size: 0.95rem; color: #9fb0bf; }
+.footer__topo {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--amber);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.footer__topo:hover { background: var(--amber); color: var(--navy); }
+
+/* ---------- Janelas estreitas (só para não quebrar) ---------- */
+@media (max-width: 60rem) {
+  .hero h1 { font-size: 3rem; }
+  .denuncia, .ongs__lista { grid-template-columns: 1fr; }
+  .colaboradores__lista { grid-template-columns: repeat(2, 1fr); }
+  .artigos { grid-template-columns: repeat(2, 1fr); }
+  .nav__list { gap: 1.25rem; }
+}
+
+/* ==========================================================
+   Scroll Trigger — cada parte aparece suavemente ao rolar
+   (o JS marca .is-visible quando o elemento entra na tela)
+   ========================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--delay, 0s);
+  }
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Atrasos para os itens de um mesmo grupo entrarem em sequência */
+.denuncia__img { --delay: 0.2s; }
+.ongs__lista > :nth-child(2), .colaboradores__lista > :nth-child(2), .colaboradores__lista > :nth-child(5), .artigos > :nth-child(2), .footer > :nth-child(2) { --delay: 0.15s; }
+.ongs__lista > :nth-child(3), .colaboradores__lista > :nth-child(3), .colaboradores__lista > :nth-child(6), .artigos > :nth-child(3), .footer > :nth-child(3) { --delay: 0.3s; }
+.artigos > :nth-child(4), .footer > :nth-child(4) { --delay: 0.45s; }
+
+@media (max-width: 40rem) {
+  .artigos, .colaboradores__lista { grid-template-columns: 1fr; }
+}
+
+/* Texto só para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   Páginas de artigo (artigo-1, artigo-2, artigo-3)
+   ========================================================== */
+html:has(.pagina-artigo) { scroll-snap-type: none; }
+
+.leitura { padding: 4rem 2rem 6rem; }
+.leitura__artigo, .leitura__mais { max-width: 46rem; margin-inline: auto; }
+
+.leitura__voltar {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: var(--navy-soft);
+  text-underline-offset: 0.2em;
+}
+.leitura__voltar:hover { color: var(--red); }
+
+.leitura h1 { font-size: 3rem; margin-bottom: 1rem; }
+.leitura__resumo { font-size: 1.3rem; color: var(--navy-soft); }
+
+.leitura__img {
+  width: 100%;
+  margin: 2.5rem 0;
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.leitura__artigo section { margin-top: 2.5rem; }
+.leitura__artigo h2 { font-size: 1.7rem; margin-bottom: 0.75rem; }
+.leitura__artigo p + p { margin-top: 1rem; }
+.leitura__artigo ul { list-style: disc; padding-left: 1.4rem; }
+.leitura__artigo li { margin-top: 0.6rem; }
+.leitura__artigo li::marker { color: var(--amber-dark); }
+.leitura__artigo a { color: var(--red); font-weight: 600; text-underline-offset: 0.2em; }
+
+.leitura__mais {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--sky);
+  border-radius: var(--radius);
+}
+.leitura__mais h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+.leitura__mais ul { display: grid; gap: 0.75rem; }
+.leitura__mais a { font-weight: 700; text-underline-offset: 0.2em; }
+.leitura__mais a:hover { color: var(--red); }
+
+@media (max-width: 60rem) {
+  .leitura h1 { font-size: 2.2rem; }
+}
+
+/* ==========================================================
+   Motion intro — as letras aparecem devagar, da esquerda para a direita
+   ========================================================== */
+.intro { display: none; }
+
+.js .intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  background: var(--navy);
+  color: var(--white);
+  transition: transform 1.1s cubic-bezier(0.77, 0, 0.18, 1);
+  /* segurança: se o JS falhar, a intro some sozinha depois de 9s */
+  animation: intro-seguranca 0s linear 9s forwards;
+}
+.sem-intro .intro { display: none; }
+.intro.is-saindo { transform: translateY(-100%); }
+
+/* trava a rolagem enquanto a intro está na tela */
+html.intro-ativa { overflow: hidden; animation: intro-destravar 0s linear 9s forwards; }
+@keyframes intro-seguranca { to { visibility: hidden; pointer-events: none; } }
+@keyframes intro-destravar { to { overflow: visible; } }
+
+.intro__titulo { font-size: clamp(3rem, 10vw, 7.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; }
+.intro__letras span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-0.6em);
+  filter: blur(6px);
+  animation: intro-letra 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.4s + var(--i) * 0.22s);   /* uma letra a cada 0,22s */
+}
+.intro__letras .destaque { color: var(--amber); }
+@keyframes intro-letra { to { opacity: 1; transform: none; filter: blur(0); } }
+
+/* linha amarela que cresce da esquerda para a direita junto com o texto */
+.intro__linha {
+  width: min(28rem, 70vw);
+  height: 4px;
+  border-radius: 2px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: intro-linha 3s cubic-bezier(0.45, 0, 0.2, 1) 0.4s forwards;
+}
+@keyframes intro-linha { to { transform: scaleX(1); } }
+
+.intro__sub {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: #c9d4dd;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  animation: intro-sub 1.2s ease 3.2s forwards;
+}
+@keyframes intro-sub { to { opacity: 1; transform: none; } }
+
+.intro__pular {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--amber);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.intro__pular:hover { background: var(--amber); color: var(--navy); }

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Unidos pela causa animal, divulgando a promoção do bem-estar, a proteção e os direitos dos animais, combatendo a crueldade, o abandono e a exploração.">
+  <title>Voz Animal</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var h = document.documentElement;
+      h.classList.add('js');
+      var reduz = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var jaViu = false;
+      try { jaViu = sessionStorage.getItem('introVista') === '1'; } catch (e) {}
+      var UMA_VEZ = true; // troque por false para a intro aparecer em TODA visita
+      h.classList.add(reduz || (UMA_VEZ && jaViu) ? 'sem-intro' : 'intro-ativa');
+    })();
+  </script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <div class="intro" id="intro">
+    <p class="intro__titulo">
+      <span class="sr-only">Voz Animal</span>
+      <span class="intro__letras" aria-hidden="true" data-texto="Voz Animal"></span>
+    </p>
+    <span class="intro__linha" aria-hidden="true"></span>
+    <p class="intro__sub">Transforme o abandono em amor</p>
+    <button class="intro__pular" type="button">Pular intro</button>
+  </div>
+
+  <header class="header" id="topo">
+    <a class="header__logo" href="#topo">
+      <img src="img/logo-200.png" alt="Logo do Voz Animal" width="200" height="75">
+    </a>
+
+    <nav class="nav" id="menu" aria-label="Navegação principal">
+      <ul class="nav__list">
+        <li><a href="#ongs">ONGs</a></li>
+        <li><a href="#denuncia">Denúncia</a></li>
+        <li><a href="#informacao">Informação</a></li>
+        <li><a href="#colaboradores">Colaboradores</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" aria-labelledby="titulo-hero">
+      <img class="hero__img" src="img/cao-1200.jpg" alt="Cachorro cinza com olhos azuis" width="1200" height="675">
+      <h1 id="titulo-hero" data-reveal>Transforme o abandono em amor</h1>
+    </section>
+
+    <section class="denuncia" id="denuncia" aria-labelledby="titulo-denuncia">
+      <div class="denuncia__texto" data-reveal>
+        <h2 id="titulo-denuncia">Denuncie</h2>
+        <p>Maltratar animais é crime no Brasil, conforme a Lei nº 9.605/1998, a qual prevê sanções penais e administrativas.</p>
+        <a class="btn" href="https://www.webdenuncia.sp.gov.br/depa/captcha" target="_blank" rel="noopener noreferrer">Onde denunciar</a>
+      </div>
+      <img class="denuncia__img" data-reveal src="img/denuncia-600.png" alt="Cachorro olhando através de barras de metal enferrujadas" width="600" height="400" loading="lazy">
+    </section>
+
+    <section class="ongs" id="ongs" aria-labelledby="titulo-ongs">
+      <h2 id="titulo-ongs" data-reveal>Conheça ONGs que protegem os animais</h2>
+
+      <ul class="ongs__lista">
+        <li class="card" data-reveal>
+          <img src="img/ong3.png" alt="Logo do Instituto Ampara Animal" width="200" height="200" loading="lazy">
+          <h3>Instituto Ampara Animal</h3>
+          <ul class="card__links">
+            <li><a href="https://www.instagram.com/amparanimal/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://web.facebook.com/institutoamparanimal/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://institutoamparanimal.org.br/" target="_blank" rel="noopener noreferrer">Site</a></li>
+          </ul>
+        </li>
+
+        <li class="card" data-reveal>
+          <img src="img/ong2-200.png" alt="Logo do Projeto Mucky" width="200" height="200" loading="lazy">
+          <h3>Projeto Mucky</h3>
+          <ul class="card__links">
+            <li><a href="https://www.instagram.com/projetomucky/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://web.facebook.com/projetomucky/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.projetomucky.org.br/" target="_blank" rel="noopener noreferrer">Site</a></li>
+          </ul>
+        </li>
+
+        <li class="card" data-reveal>
+          <img src="img/ong1.png" alt="Logo do Rancho dos Gnomos" width="200" height="200" loading="lazy">
+          <h3>Rancho dos Gnomos</h3>
+          <ul class="card__links">
+            <li><a href="https://www.instagram.com/ranchodosgnomos/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://web.facebook.com/RanchoDosGnomos/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://ranchodosgnomos.org.br/novo/" target="_blank" rel="noopener noreferrer">Site</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="informacao" id="informacao" aria-labelledby="titulo-informacao">
+      <h2 id="titulo-informacao" data-reveal>Confira também</h2>
+
+      <ul class="artigos">
+        <li data-reveal>
+          <a class="artigo" href="artigo-1.html">
+            <img src="img/art1-600.png" alt="Gato deitado olhando para a câmera" width="400" height="300" loading="lazy">
+            <span>Descubra tudo o que precisa saber antes de adotar um amigo.</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="artigo" href="artigo-2.html">
+            <img src="img/art2.png" alt="Buldogue francês preto deitado no chão de madeira" width="400" height="300" loading="lazy">
+            <span>Descubra quais são as doenças mais comuns em animais de periferias.</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="artigo" href="artigo-3.html">
+            <img src="img/art3-600.png" alt="Ouriço-cacheiro sendo delicadamente segurado nas mãos de alguém" width="400" height="300" loading="lazy">
+            <span>Você sabe o que é necessário para criar um animal silvestre?</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="artigo" href="https://jornal.usp.br/atualidades/abandono-de-animais-segue-alarmante-no-brasil/" target="_blank" rel="noopener noreferrer">
+            <img class="foco-esquerda" src="img/abandono-animais-960x540.jpg" alt="Cachorro sentado na estrada, olhando um carro se afastar" width="960" height="540" loading="lazy">
+            <span>Número de animais abandonados no Brasil segue alarmante. Leia no Jornal da USP.</span>
+            <small class="sr-only">(abre em nova aba)</small>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="informativos" id="informativos" aria-labelledby="titulo-informativos">
+      <h2 id="titulo-informativos" data-reveal>Abandono de animais em números</h2>
+
+      <div class="informativos__lista">
+        <article class="informativo" data-reveal>
+          <h3>Cães e Gatos abandonados no Brasil em 2023</h3>
+          <p>De acordo com a pesquisa do Cobasi Cuida, 55% dos animais abandonados resgatados em 2023 foram cães. Por sua vez, os gatos resgatados representam 45% dos casos relatados por ONGs e protetores independentes que participaram do estudo.</p>
+          <img src="img/informativo-caes-e-gatos-2023.png" alt="Gráfico ilustrado: 55% dos animais abandonados resgatados em 2023 eram cães e 45% eram gatos" width="709" height="471" loading="lazy">
+        </article>
+
+        <article class="informativo" data-reveal>
+          <h3>O vira-lata é a raça de cachorro mais abandonada</h3>
+          <p>Entre as raças de cachorros abandonados, quem lidera essa triste estatística são os SRD, conhecidos popularmente como vira-latas. Eles apareceram em aproximadamente 33% dos casos.</p>
+          <p>Em seguida, aparecem Pit Bull com 9,85%, Shih Tzu com 6,82% Chow Chow com 5,30%. Raças como Poodle, Yorkshire, Boxer, Lhasa Apso, Pastor Alemão, Pinscher e Rotweiller também foram citados, porém em percentuais menores.</p>
+          <img src="img/informativo-racas-caes.png" alt="Gráfico ilustrado das raças de cães mais abandonadas: vira-lata 33,3%, Pit Bull 9,8%, Shih Tzu 6,8% e Chow Chow 5,3%" width="709" height="471" loading="lazy">
+        </article>
+
+        <article class="informativo" data-reveal>
+          <h3>Gatos vira-latas são os mais abandonados</h3>
+          <p>Por não possuírem muitas variações de raças no Brasil, os gatos vira-latas (SRD) com 81,1% e os siameses com 13,2%, são as principais raças vítimas de abandono no país.</p>
+          <p>Em menor percentual, gatos siameses e de outras raças também foram citados. Juntos, eles representam 5,7% dos casos.</p>
+          <img src="img/informativo-racas-gatos.png" alt="Gráfico ilustrado das raças de gatos mais abandonadas: vira-lata 81,1%, Siamês 13,2%, Persa 3,7% e outros 1,9%" width="709" height="471" loading="lazy">
+        </article>
+      </div>
+    </section>
+
+    <section class="colaboradores" id="colaboradores" aria-labelledby="titulo-colaboradores">
+      <h2 id="titulo-colaboradores" data-reveal>Conheça quem fez o projeto</h2>
+
+      <ul class="colaboradores__lista">
+        <li class="colaborador" data-reveal>
+          <span class="colaborador__avatar" aria-hidden="true">SS</span>
+          <h3>Sarah Cristina Matias de Souza</h3>
+          <p>Tratamento de dados e apresentadora do Projeto.</p>
+        </li>
+
+        <li class="colaborador" data-reveal>
+          <span class="colaborador__avatar" aria-hidden="true">GA</span>
+          <h3>Gustavo Ferreira de Mendonça do Amaral</h3>
+          <p>Tratamento de dados e apresentador do Projeto.</p>
+        </li>
+
+        <li class="colaborador" data-reveal>
+          <span class="colaborador__avatar" aria-hidden="true">RP</span>
+          <h3>Rickelmer Marçal Pessanha</h3>
+          <p>Criador do site e apresentador do Projeto.</p>
+          <ul class="colaborador__links">
+            <li><a href="https://github.com/rickdr3" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Rickelmer Marçal Pessanha (abre em nova aba)"><img src="img/github-64.png" alt="" width="24" height="24" loading="lazy">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/rickelmer-pessanha-35ba2937b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rickelmer Marçal Pessanha (abre em nova aba)"><img src="img/linkedin-64.png" alt="" width="24" height="24" loading="lazy">LinkedIn</a></li>
+          </ul>
+        </li>
+
+        <li class="colaborador" data-reveal>
+          <span class="colaborador__avatar" aria-hidden="true">LS</span>
+          <h3>Leticia Vasconcellos Santos</h3>
+          <p>Tratamento de dados e apresentadora do Projeto.</p>
+          <ul class="colaborador__links">
+            <li><a href="https://www.linkedin.com/in/let%C3%ADcia-vasconcellos-b78744376/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Leticia Vasconcellos Santos (abre em nova aba)"><img src="img/linkedin-64.png" alt="" width="24" height="24" loading="lazy">LinkedIn</a></li>
+          </ul>
+        </li>
+
+        <li class="colaborador" data-reveal>
+          <span class="colaborador__avatar" aria-hidden="true">JF</span>
+          <h3>Jennefer Santana de Figueiredo</h3>
+          <p>Criadora da base do site e apresentadora do Projeto.</p>
+          <ul class="colaborador__links">
+            <li><a href="https://www.linkedin.com/in/jennefer-figueiredo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Jennefer Santana de Figueiredo (abre em nova aba)"><img src="img/linkedin-64.png" alt="" width="24" height="24" loading="lazy">LinkedIn</a></li>
+          </ul>
+        </li>
+
+        <li class="colaborador" data-reveal>
+          <span class="colaborador__avatar" aria-hidden="true">GO</span>
+          <h3>Gabriel Rodrigues de Oliveira</h3>
+          <p>Tratamento de dados e apresentador do Projeto.</p>
+          <ul class="colaborador__links">
+            <li><a href="https://www.linkedin.com/in/gabriel-rodrigues-oliveira09" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Gabriel Rodrigues de Oliveira (abre em nova aba)"><img src="img/linkedin-64.png" alt="" width="24" height="24" loading="lazy">LinkedIn</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="saude" aria-labelledby="titulo-saude">
+      <h2 id="titulo-saude" data-reveal><a href="https://www.google.com/maps/search/hospitais+veterin%C3%A1rios+p%C3%BAblicos+em+s%C3%A3o+paulo/@-23.5167569,-46.4453632,14z/data=!3m1!4b1?entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Saiba onde encontrar hospitais veterinários gratuitos<span class="sr-only"> (abre o Google Maps em nova aba)</span></a></h2>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <img src="img/logo-200.png" alt="Logo do Voz Animal" width="200" height="75" loading="lazy" data-reveal>
+    <p class="footer__frase" data-reveal>Todos eles merecem carinho e amor</p>
+    <p data-reveal>Unidos pela causa animal, divulgando a promoção do bem-estar, a proteção e os direitos dos animais, combatendo a crueldade, o abandono e a exploração.</p>
+    <p class="footer__creditos" data-reveal>Base de Dados e créditos: Cobasi, Governo de São Paulo, Jornal da USP, DATA SUS</p>
+    <a class="footer__topo" data-reveal href="#topo">Voltar ao topo</a>
+  </footer>
+
+</body>
+</html>
